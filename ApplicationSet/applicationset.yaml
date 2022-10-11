@@ -36,7 +36,7 @@ spec:
             - name: HELM_CHART_NAME
               value: "{{ yotpo.chartName }}"
             - name: HELM_VALUES_FILE
-              value: "{{ filepath }}"
+              value: "{{ path }}/{{ path.filename }}"
       syncPolicy:
         automated:
           prune: true
