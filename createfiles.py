@@ -4,7 +4,7 @@ import errno
 #indice =4
 
 
-for indice in range(1, 100):
+for indice in range(1, 50):
     print(indice)
     filename = f"C:\\Pervasivemind.net\\Lab\\argocd-example\\helm-values-files\\kuard{indice}\\kuard.yaml"
     if not os.path.exists(os.path.dirname(filename)):
