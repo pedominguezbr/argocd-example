@@ -9,35 +9,37 @@ spec:
       repoURL: https://github.com/pedominguezbr/argocd-example.git
       revision: HEAD
       files:
-      - path: "helm-values-files/**/*.yaml"
+      - path: "helm-values-files-omnitok/**/*.yaml"
   template:
     metadata:
-      name: '{{ yotpo.deploymentName }}'
+      name: '{{ omnitok.deploymentName }}'
     spec:
       destination:
-        namespace: "{{ yotpo.namespace }}"
+        namespace: "{{ omnitok.namespace }}"
         server: https://kubernetes.default.svc
-      project: "{{ yotpo.namespace }}"
+      project: "{{ omnitok.namespace }}"
       source:
         path: "./"
         repoURL: https://github.com/pedominguezbr/argocd-example.git
         targetRevision: HEAD
         plugin:
-          name: helm-yotpo
+          name: helm-omnitok-a
           env:
             - name: HELM_RELEASE_NAME
-              value: "{{ yotpo.deploymentName }}"
+              value: "{{ omnitok.deploymentName }}"
             - name: HELM_CHART_VERSION
-              value: "{{ yotpo.chartVersion }}"
+              value: "{{ omnitok.chartVersion }}"
             - name: NAMESPACE
-              value: "{{yotpo.namespace}}"
+              value: "{{omnitok.namespace}}"
             - name: HELM_REPO_URL
-              value: "{{ yotpo.chartPath }}"
+              value: "{{ omnitok.chartPath }}"
             - name: HELM_CHART_NAME
-              value: "{{ yotpo.chartName }}"
+              value: "{{ omnitok.chartName }}"
             - name: HELM_VALUES_FILE
               value: "{{ path }}/{{ path.filename }}"
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

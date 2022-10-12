@@ -1,0 +1,117 @@
+image:  
+  repository: gcr.io/x-circle-204800/slim-rocket-chat
+  pullPolicy: IfNotPresent
+  tag: 7c3b748c6d9cf48ddeef72e5199200ca32435c53
+replicaCount: 2
+
+smtp:
+  enabled: false
+  host: null
+  password: null
+  port: 587
+  username: null
+
+extraEnv: null
+
+initialAdmin:
+  adminUserName: pdominguez
+  adminName: pedro dominguez
+  adminPassword: 12345
+  adminEmail: pe.dominguez.br1@gmail.com
+  showSetupWizard: completed
+
+podAntiAffinity: ""
+podAntiAffinityTopologyKey: kubernetes.io/hostname
+
+##externalMongodbOplogUrl: mongodb+srv://omnitokprod:FrgEemehcc6IpvLR@omnitok.amdmo.gcp.mongodb.net/local?retryWrites=true&w=majority
+##externalMongodbUrl: mongodb+srv://omnitokprod:FrgEemehcc6IpvLR@omnitok.amdmo.gcp.mongodb.net/omnitok-alemana?retryWrites=true&w=majority
+externalMongodbUrl:  mongodb+srv://rocketchat-helm:sDEvmP7vxn85g9H3@rocketchat.pa9zg.gcp.mongodb.net/omnitok-staging-test?retryWrites=true&w=majority
+externalMongodbOplogUrl:  mongodb+srv://rocketchat-helm:sDEvmP7vxn85g9H3@rocketchat.pa9zg.gcp.mongodb.net/local?retryWrites=true&w=majority
+
+mongodb:
+  enabled: false
+  persistence:
+    accessMode: ReadWriteOnce
+    enabled: true
+    size: 8Gi
+  replicaSet:
+    enabled: true
+    pdb:
+      minAvailable:
+        arbiter: 0
+        secondary: 0
+    replicas:
+      arbiter: 0
+      secondary: 0
+
+persistence:
+  accessMode: ReadWriteOnce
+  enabled: false
+  secretManager:
+    enabled: false
+  size: 8Gi
+podAnnotations: {}
+
+host: newrockertchat.omnitok.com
+
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+  enabled: true
+  host: newrockertchat.omnitok.com
+  path: /
+  # tls:
+  # - secretName: newrockertchat.omnitok.com-tls
+  #   hosts:
+  #     - newrockertchat.omnitok.com
+
+livenessProbe:
+  enabled: false
+  failureThreshold: 15
+  initialDelaySeconds: 600
+  periodSeconds: 300
+  successThreshold: 1
+  timeoutSeconds: 10
+minAvailable: 2
+
+prometheusScraping:
+  enabled: true
+  port: 9458 # Avoid using 9458: conflicts with Moleculer Exporter
+
+serviceMonitor:
+  enabled: true
+  interval: 30s
+  port: metrics
+  
+podLabels: {}
+readinessProbe:
+  enabled: false
+  failureThreshold: 15
+  initialDelaySeconds: 600
+  periodSeconds: 300
+  successThreshold: 1
+  timeoutSeconds: 10
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+secretManager:
+  enabled: true
+  projectId: x-circle-204800
+  secretName: sa-sm-omnitok
+securityContext:
+  enabled: true
+  fsGroup: 999
+  runAsUser: 999
+service:
+  annotations: {}
+  labels: {}
+  port: 80
+  type: ClusterIP
+serviceAccount:
+  create: true
+  name: null
+
+
