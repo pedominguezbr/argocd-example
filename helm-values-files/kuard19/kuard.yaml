@@ -3,7 +3,7 @@ yotpo:
   chartName: onechart
   chartPath: https://chart.onechart.dev/
   chartVersion: v0.41.0
-  namespace: infra
+  namespace: kuard-test19
 
 replicaCount: 1
 image:
