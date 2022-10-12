@@ -20,7 +20,7 @@ for indice in range(1, 50):
   chartName: onechart
   chartPath: https://chart.onechart.dev/
   chartVersion: v0.41.0
-  namespace: kuard-test{indice}
+  namespace: infra
 
 replicaCount: 1
 image:
