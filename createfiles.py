@@ -24,8 +24,8 @@ for indice in range(1, 50):
 
 replicaCount: 1
 image:
-repository: gcr.io/kuar-demo/kuard-amd64
-tag: blue
+  repository: gcr.io/kuar-demo/kuard-amd64
+  tag: blue
 
 containerPort: 8080
 imagePullSecrets: []
