@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: applicationset-test
-  namespace: infra
+  name: applicationset-test-a
+  namespace: argocd
 spec:
   generators:
   - git:
@@ -17,13 +17,13 @@ spec:
       destination:
         namespace: "{{ yotpo.namespace }}"
         server: https://kubernetes.default.svc
-      project: "{{ yotpo.namespace }}"
+      project: infra
       source:
         path: "./"
         repoURL: https://github.com/pedominguezbr/argocd-example.git
         targetRevision: HEAD
         plugin:
-          name: helm-yotpo
+          name: helm-omnitok-a
           env:
             - name: HELM_RELEASE_NAME
               value: "{{ yotpo.deploymentName }}"
