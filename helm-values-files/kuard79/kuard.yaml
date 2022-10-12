@@ -1,0 +1,18 @@
+yotpo:
+    deploymentName: kuard-test79
+    chartName: onechart
+    chartPath: https://chart.onechart.dev/
+    chartVersion: v0.41.0
+    namespace: infra
+
+    replicaCount: 1
+    image:
+    repository: gcr.io/kuar-demo/kuard-amd64
+    tag: blue
+
+    containerPort: 8080
+    imagePullSecrets: []
+
+    ## Configure args passed to Telegraf containers
+    args: []
+        
