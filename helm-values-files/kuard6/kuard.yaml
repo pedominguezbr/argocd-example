@@ -1,9 +1,9 @@
 yotpo:
-    deploymentName: kuard-test6
-    chartName: onechart
-    chartPath: https://chart.onechart.dev/
-    chartVersion: v0.41.0
-    namespace: kuard-test6
+  deploymentName: kuard-test6
+  chartName: onechart
+  chartPath: https://chart.onechart.dev/
+  chartVersion: v0.41.0
+  namespace: kuard-test6
 
 replicaCount: 1
 image:

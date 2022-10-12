@@ -16,11 +16,11 @@ for indice in range(1, 50):
 
     with open(filename, "w") as f:
         f.write(f'''yotpo:
-    deploymentName: kuard-test{indice}
-    chartName: onechart
-    chartPath: https://chart.onechart.dev/
-    chartVersion: v0.41.0
-    namespace: kuard-test{indice}
+  deploymentName: kuard-test{indice}
+  chartName: onechart
+  chartPath: https://chart.onechart.dev/
+  chartVersion: v0.41.0
+  namespace: kuard-test{indice}
 
 replicaCount: 1
 image:
