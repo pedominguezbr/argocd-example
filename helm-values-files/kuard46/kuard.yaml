@@ -5,14 +5,14 @@ yotpo:
     chartVersion: v0.41.0
     namespace: kuard-test46
 
-    replicaCount: 1
-    image:
-    repository: gcr.io/kuar-demo/kuard-amd64
-    tag: blue
+replicaCount: 1
+image:
+repository: gcr.io/kuar-demo/kuard-amd64
+tag: blue
 
-    containerPort: 8080
-    imagePullSecrets: []
+containerPort: 8080
+imagePullSecrets: []
 
-    ## Configure args passed to Telegraf containers
-    args: []
-        
+## Configure args passed to Telegraf containers
+args: []
+    
