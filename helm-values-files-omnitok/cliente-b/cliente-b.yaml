@@ -23,10 +23,8 @@ initialAdmin:
 podAntiAffinity: ""
 podAntiAffinityTopologyKey: kubernetes.io/hostname
 
-##externalMongodbOplogUrl: mongodb+srv://omnitokprod:FrgEemehcc6IpvLR@omnitok.amdmo.gcp.mongodb.net/local?retryWrites=true&w=majority
-##externalMongodbUrl: mongodb+srv://omnitokprod:FrgEemehcc6IpvLR@omnitok.amdmo.gcp.mongodb.net/omnitok-alemana?retryWrites=true&w=majority
-externalMongodbUrl:  mongodb+srv://rocketchat-helm:sDEvmP7vxn85g9H3@rocketchat.pa9zg.gcp.mongodb.net/omnitok-staging-test?retryWrites=true&w=majority
-externalMongodbOplogUrl:  mongodb+srv://rocketchat-helm:sDEvmP7vxn85g9H3@rocketchat.pa9zg.gcp.mongodb.net/local?retryWrites=true&w=majority
+externalMongodbUrl: ab
+externalMongodbOplogUrl: b
 
 mongodb:
   enabled: false
